@@ -1,0 +1,1 @@
+This Python prototype offers a straightforward Time Management App. Using SQLite, it allows you to record tasks with details such as date, start time, end time, task name, and task tag. You can then search for tasks based on various criteria. The example usage at the end showcases a simple interface for recording time, searching tasks, and exiting the application. 
