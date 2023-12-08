@@ -7,8 +7,9 @@ class TaskManager:
     def __init__(self):
         self.db_factory = DatabaseConnectionFactory()
         self.conn = self.db_factory.get_connection()
-        self.c = self.db_factory.get_cursor()
-        self.task_repository = TaskRecordRepository(self.conn, self.c)
+# CODE SMELL BELOW IT WAS SELF.C
+        self.cursor = self.db_factory.get_cursor()
+        self.task_repository = TaskRecordRepository(self.conn, self.cursor)
         self.validator = TaskRecordValidator()
 
     def record_time(self):
