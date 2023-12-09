@@ -1,0 +1,1 @@
+.\cloc-1.98.exe --json --exclude-dir=progress . > ../../progress/2023_10_08.json

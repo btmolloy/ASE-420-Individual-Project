@@ -1,0 +1,130 @@
+ 
+Code Smell / Refactor 1: 
+
+Date Found: 12/9/23 
+
+Code Smell: Undescriptive variable name 
+
+ - Variable name was c which is lacking description 
+
+Refactor:  Rename undescriptive variable 
+
+Location: Line 10 of src > TaskManager.py 
+
+ 
+
+Code Smell / Refactor 2: 
+
+Date Found: 12/9/23 
+
+Code Smell: If/Else Conditional Statement 
+
+ - If else statement checked used input, now uses dict 
+
+Refactor: Replace Conditional with dictionary  
+
+Location: Line 40 of src > TaskManager.py 
+
+ 
+
+Code Smell / Refactor 3: 
+
+Date Found: 12/9/23 
+
+Code Smell: Magic Number 
+
+ - Variables in main function were called num with no explanation. 
+
+Refactor: Replace Magic Number with Symbolic variable name 
+
+Location: Lines 14, 16 and 18 in main.py 
+
+ 
+
+Code Smell / Refactor 4: 
+
+Date Found: 12/9/23 
+
+Code Smell: Dead Code 
+
+ - Old code that ended up not being used still exists in DatabaseConnectionFactory. This needs to be removed. 
+
+Refactor: Remove dead code 
+
+Location: Line 10 in src > DatabaseConnectionFactory.py 
+
+ 
+
+Code Smell / Refactor 5: 
+
+Date Found: 12/9/23 
+
+Code Smell: Duplicate code 
+
+ - Duplicate code existed to display return results. Duplicate code was removed and a for loop was implemented instead.  
+
+Refactor: Remove duplicate code 
+
+Location: Line 63 of src > TaskManager.py 
+
+ 
+
+Code Smell 6: 
+
+Date Found: 12/9/23 
+
+Code Smell: Long Parameter List 
+
+ - TaskRecord class requires long list of params 
+
+Location: Line 34 of src > TaskManager.py 
+
+ 
+
+Code Smell 7: 
+
+Date Found: 12/9/23 
+
+Code Smell: Violation of SRP 
+
+ - Has many responsibilities, probably can be broken down in next version 
+
+Location: Line 15 of src > TaskManager.py 
+
+ 
+
+Code Smell 8: 
+
+Date Found: 12/9/23 
+
+Code Smell: Lack of Comments 
+
+ - So far, the application lacks much needed comments  
+
+Location: All lines of src > ... 
+
+ 
+
+Code Smell 9: 
+
+Date Found: 12/9/23 
+
+Code Smell: Use of If/Else conditional statements.  
+
+ - In the main function, there is an If/Else statement that should be refactored in the next iteration. 
+
+Location: Line 14 – 22 in main.py 
+
+ 
+
+Code Smell 10: 
+
+Date Found: 12/9/23 
+
+Code Smell: Use of If/Else conditional statements.  
+
+ - In the main function, there is an If/Else statement that should be refactored in the next iteration. 
+
+Location: Line 14 – 22 in main.py 
+
+ 
