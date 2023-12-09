@@ -7,7 +7,6 @@ class DatabaseConnectionFactory:
         if cls._instance is None:
             cls._instance = super(DatabaseConnectionFactory, cls).__new__(cls)
             cls._instance.conn = sqlite3.connect(db_name)
-# CODE SMELL BELOW CURSOR WAS C
             cls._instance.cursor = cls._instance.conn.cursor()
         return cls._instance
 

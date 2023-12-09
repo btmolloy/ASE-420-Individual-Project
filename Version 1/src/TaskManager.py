@@ -7,11 +7,11 @@ class TaskManager:
     def __init__(self):
         self.db_factory = DatabaseConnectionFactory()
         self.conn = self.db_factory.get_connection()
-# CODE SMELL BELOW IT WAS SELF.C
         self.cursor = self.db_factory.get_cursor()
         self.task_repository = TaskRecordRepository(self.conn, self.cursor)
         self.validator = TaskRecordValidator()
 
+    # Below method violates SRP
     def record_time(self):
         date_of_task = input("Enter date (YYYY-MM-DD or today): ")
         while not (self.validator.verify_date(date_of_task) or date_of_task.lower() == 'today'):
@@ -31,6 +31,7 @@ class TaskManager:
         task_name = input("Enter task name: ")
         task_tag = input("Enter task tag: ")
 
+        # Long Parameter List Code Smell below
         task_record = TaskRecord(date_of_task, start_time_of_task, end_time_of_task, task_name, task_tag)
         self.task_repository.insert_task_record(task_record)
         print("Data successfully inserted into the database.")
