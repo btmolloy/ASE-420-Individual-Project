@@ -1,7 +1,6 @@
 from src.ValidationStrategy import ValidationStrategy
 import datetime
 
-
 class DateValidationStrategy(ValidationStrategy):
     def validate(self, date_str):
         try:

@@ -1,34 +1,29 @@
-Design Patterns: 
+Design Patterns:
 
- 
-
-Design Pattern 1: Singleton Pattern 
-
-Date: 12/7/23 
-
-File: DatabaseConnectionFactory.py 
+Design Pattern 1:
+Pattern: Singleton Pattern
+Date: 12/7/23
+File: DatabaseConnectionFactory.py
 Lines: 6 - 11
+A form of the Singleton Pattern is used in DatabaseConnectionFactory to ensure that only one instance of the database connection is created. The _instance variable helps maintain a single instance of the class.
 
-A form of the Singleton Pattern is used in DatabaseConnectionFactory to ensure that only one instance of the database connection is created. The _instance variable helps maintain a single instance of the class. 
-
- 
-
-Factory Method Pattern: 
-
-Date: 12/7/23 
-
-File: DatabaseConnectionFactory.py 
+Design Pattern 2:
+Pattern: Factory Method Pattern
+Date: 12/7/23
+File: DatabaseConnectionFactory.py
 Lines: 13 - 17
+Although not explicitly a Factory Method Pattern, the DatabaseConnectionFactory acts similarly by providing a centralized way to create and manage instances of the database connection. It serves as a factory for obtaining database connections.
 
-Although not explicitly a Factory Method Pattern, the DatabaseConnectionFactory acts similarly by providing a centralized way to create and manage instances of the database connection. It serves as a factory for obtaining database connections. 
+Design Pattern 3:
+Pattern: Factory Method Pattern
+Date: [Provide the current date]
+File: TaskRecordRepositoryFactory.py
+Lines: [Specify the relevant lines]
+The TaskRecordRepositoryFactory class implements the Factory Method Pattern, providing a centralized method for creating instances of the TaskRecordRepository class.
 
- 
-
-Strategy Pattern: 
-
-Date: 12/7/23 
-
-File: TaskRecordValidator.py 
+Design Pattern 4:
+Pattern: Strategy Pattern
+Date: 12/7/23
+File: TaskRecordValidator.py
 Lines: 4 - 18
-
-The TaskRecordValidator class follows a strategy-like approach by encapsulating the date and time validation strategies in separate methods (verify_date and verify_time). The strategies can be easily extended or replaced without modifying the client code. 
+The TaskRecordValidator class follows a strategy-like approach by encapsulating the date and time validation strategies in separate methods (verify_date and verify_time). The strategies can be easily extended or replaced without modifying the client code.

@@ -1,5 +1,7 @@
+from src.ValidationStrategy import ValidationStrategy
+
 # Strategy Pattern for Validation
-class TaskRecordValidator:
+class TaskRecordValidator(ValidationStrategy):
     def __init__(self, validation_strategy):
         self.validation_strategy = validation_strategy
 
