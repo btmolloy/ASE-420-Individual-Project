@@ -1,13 +1,39 @@
-This Python prototype offers a straightforward Time Management App. Using SQLite, it allows you to record tasks with details such as date, start time, end time, task name, and task tag. You can then search for tasks based on various criteria. The example usage at the end showcases a simple interface for recording time, searching tasks, and exiting the application. 
+# Time Management Application
 
-DatabaseConnectionFactory.py: This class implements a singleton pattern to manage the SQLite database connection, ensuring a single instance for the entire application.
+This is a time management application that allows users to record and track how they use their time. The application provides a command-line interface (CUI) for easy interaction.
 
-TaskRecordValidator.py: This class provides static methods to validate date and time formats, ensuring input consistency in the TaskManager.
+## Features
 
-TaskRecord.py: Represents a TaskRecord object with attributes like date, start and end times, task name, and tag.
+1. Record time: Users can input time usage in the format `DATE FROM TO TASK TAG`.
 
-TaskRecordRepository.py: Manages interactions with the tasks table in the database, including creating the table, inserting records, and searching tasks based on different criteria.
+2. Search tasks: Users can query their time usage based on date, task name, or task tag.
 
-TaskManager.py: Orchestrates the recording and searching of tasks, utilizing the other classes for database interaction, validation, and task representation.
+3. Generate report: Users can generate a report of their time usage for a specified date range.
 
-main.py: The main class initializes the TaskManager and provides a simple command-line interface for users to record time, search tasks, or exit the application.
+4. View Priorities: Users can view a list of activities they spend the most time on.
+
+## Requirements
+
+- Python 3.x
+- SQLite
+
+
+##Usage
+Run the application:
+
+Bash
+python main.py
+
+###Choose one of the following actions:
+Record time (1)
+Search tasks (2)
+Generate report (3)
+View Priorities (4)
+Exit (5)
+Follow the prompts to input data or perform actions.
+
+## Additional Notes:
+The application follows object-oriented programming principles and SOLID principles.
+Three design patterns (Strategy, Singleton, and Factory) have been integrated into the code.
+Contributors
+Your Name
