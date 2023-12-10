@@ -1,6 +1,4 @@
-# Singleton Pattern for Database Connection
 import sqlite3
-
 
 class DatabaseConnectionFactory:
     _instance = None

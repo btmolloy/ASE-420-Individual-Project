@@ -1,66 +1,42 @@
+import datetime
 from src.DatabaseConnectionFactory import DatabaseConnectionFactory
-from src.TaskRecordValidator import TaskRecordValidator
-from src.TaskRecord import TaskRecord
-from src.TaskRecordRepository import TaskRecordRepository
+from src.TaskRecordRepositoryFactory import TaskRecordRepositoryFactory
+from src.ReportGenerator import ReportGenerator
+from src.SearchTask import SearchTask
+from src.RecordTime import RecordTime
 
 class TaskManager:
     def __init__(self):
         self.db_factory = DatabaseConnectionFactory()
-        self.conn = self.db_factory.get_connection()
-        self.cursor = self.db_factory.get_cursor()
-        self.task_repository = TaskRecordRepository(self.conn, self.cursor)
-        self.validator = TaskRecordValidator()
+        self.task_repository_factory = TaskRecordRepositoryFactory()
+        self.task_repository = self.task_repository_factory.create_repository(
+            self.db_factory.get_connection(), self.db_factory.get_cursor()
+        )
+        self.report_generator = ReportGenerator()
 
-    # Below method violates SRP
     def record_time(self):
-        date_of_task = input("Enter date (YYYY-MM-DD or today): ")
-        while not (self.validator.verify_date(date_of_task) or date_of_task.lower() == 'today'):
-            print("Invalid date format. Please use the format YYYY-MM-DD or 'today'.")
-            date_of_task = input("Enter date (YYYY-MM-DD or today): ")
-
-        start_time_of_task = input("Enter start time (HH:MM AM/PM): ")
-        while not self.validator.verify_time(start_time_of_task):
-            print("Invalid time format. Please use the format HH:MM AM/PM.")
-            start_time_of_task = input("Enter start time (HH:MM AM/PM): ")
-
-        end_time_of_task = input("Enter end time (HH:MM AM/PM): ")
-        while not self.validator.verify_time(end_time_of_task):
-            print("Invalid time format. Please use the format HH:MM AM/PM.")
-            end_time_of_task = input("Enter end time (HH:MM AM/PM): ")
-
-        task_name = input("Enter task name: ")
-        task_tag = input("Enter task tag: ")
-
-        # Long Parameter List Code Smell below
-        task_record = TaskRecord(date_of_task, start_time_of_task, end_time_of_task, task_name, task_tag)
-        self.task_repository.insert_task_record(task_record)
-        print("Data successfully inserted into the database.")
+        recordAction = RecordTime(self.task_repository)
+        recordAction.record_time()
 
     def search_tasks(self):
-        query_options = {
-            "1": "date_of_task",
-            "2": "start_time_of_task",
-            "3": "end_time_of_task",
-            "4": "task_name",
-            "5": "task_tag",
-            "6": "start_time_of_task AND end_time_of_task"
-        }
+        searchAction = SearchTask(self.task_repository)
+        searchAction.search_tasks()
 
-        print("Search options:")
-        for key, value in query_options.items():
-            print(f"{key}. {value.replace('_', ' ')}")
+    def generate_report(self):
+        self.report_generator.generate_report(self.task_repository)
 
-        choice = input("Enter your choice: ")
-        if choice not in query_options:
-            print("Invalid choice. Please enter a number between 1 and 6.")
-            return
-
-        search_value = input(f"Enter the {query_options[choice].replace('_', ' ')} you want to search for: ")
-        results = self.task_repository.search_tasks(query_options[choice], search_value)
-
-        if results:
-            print("Search Results:")
-            for result in results:
-                print(result)
+    def view_priorities(self):
+        priority_activities = self.task_repository.get_priority_activities()
+        if priority_activities:
+            print("Priority Activities:\n====================\n|  TAG  | DURATION |\n====================")
+            for activity in priority_activities:
+                print(activity)
         else:
-            print("No results found for the search criteria.")
+            print("No priority activities found.")
+
+    def exit(self):
+        self.db_factory.conn.close()
+        print("\n  _____                 _ _                _ \n / ____|               | | |              | |\n| |  __  ___   ___   __| | |__  _   _  ___| |\n| | |_ |/ _ \ / _ \ / _` | '_ \| | | |/ _ \ |\n| |__| | (_) | (_) | (_| | |_) | |_| |  __/_|\n \_____|\___/ \___/ \__,_|_.__/ \__, |\___(_)\n                                 __/ |       \n                                |___/        ")
+        exit()
+
+
