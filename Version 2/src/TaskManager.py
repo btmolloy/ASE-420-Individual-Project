@@ -27,7 +27,7 @@ class TaskManager:
 
     def generate_report(self):
         # Execute the ReportGenerator action
-        self.report_generator.generate_report(self.task_repository)
+        self.report_generator.ReportGenerator(self.task_repository)
 
     def view_priorities(self):
         # Retrieve and display priority activities from the repository
@@ -43,4 +43,4 @@ class TaskManager:
         # Close the database connection and exit the application
         self.db_factory.conn.close()
         print("\n  _____                 _ _                _ \n / ____|               | | |              | |\n| |  __  ___   ___   __| | |__  _   _  ___| |\n| | |_ |/ _ \ / _ \ / _` | '_ \| | | |/ _ \ |\n| |__| | (_) | (_) | (_| | |_) | |_| |  __/_|\n \_____|\___/ \___/ \__,_|_.__/ \__, |\___(_)\n                                 __/ |       \n                                |___/        ")
-        exit()
+        exit(0)

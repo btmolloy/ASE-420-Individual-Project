@@ -1,5 +1,5 @@
 class ReportGenerator:
-    def generate_report(self, task_repository):
+    def ReportGenerator(self, task_repository):
         # Get user input for start and end dates
         start_date = input("Enter start date (YYYY-MM-DD): ")
         end_date = input("Enter end date (YYYY-MM-DD): ")
