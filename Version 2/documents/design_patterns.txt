@@ -4,19 +4,19 @@ Design Pattern 1:
 Pattern: Singleton Pattern
 Date: 12/7/23
 File: DatabaseConnectionFactory.py
-Lines: 6 - 11
+Lines: 5 - 19
 A form of the Singleton Pattern is used in DatabaseConnectionFactory to ensure that only one instance of the database connection is created. The _instance variable helps maintain a single instance of the class.
 
 Design Pattern 2:
 Pattern: Factory Method Pattern
 Date: 12/7/23
 File: DatabaseConnectionFactory.py
-Lines: 13 - 17
+Lines: 5 - 19
 Although not explicitly a Factory Method Pattern, the DatabaseConnectionFactory acts similarly by providing a centralized way to create and manage instances of the database connection. It serves as a factory for obtaining database connections.
 
 Design Pattern 3:
 Pattern: Factory Method Pattern
-Date: 12/8/23
+Date: 12/9/23
 File: TaskRecordRepositoryFactory.py
 Lines: 4 - 6
 The TaskRecordRepositoryFactory class implements the Factory Method Pattern, providing a centralized method for creating instances of the TaskRecordRepository class.
@@ -24,6 +24,6 @@ The TaskRecordRepositoryFactory class implements the Factory Method Pattern, pro
 Design Pattern 4:
 Pattern: Strategy Pattern
 Date: 12/7/23
-File: ValidationStrategy.py
-Lines: 4 - 18
-The ValidationStrategy class follows a strategy-like approach by encapsulating the date and time validation strategies in separate methods (verify_date and verify_time). The strategies can be easily extended or replaced without modifying the client code.
+File: TaskRecordValidator.py
+Lines: 4 - 7
+The TaskRecordValidator class follows a strategy-like approach by encapsulating the date and time validation strategies in separate methods (verify_date and verify_time). The strategies can be easily extended or replaced without modifying the client code.

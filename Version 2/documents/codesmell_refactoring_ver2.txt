@@ -1,0 +1,131 @@
+Code Smell / Refactor 1: 
+
+Date Found: 12/9/23 
+
+Code Smell:  If/Else Conditional Statement 
+
+ - An If Else statment was used to read user input and was replaced with a dictionary.
+
+Refactor: Replace Conditional with Dictionary
+
+Location: Line 35 of src > UserCommunication.py
+ 
+
+
+Code Smell / Refactor 2: 
+
+Date Found: 12/9/23 
+
+Code Smell: Undescriptive variable name 
+
+ - Had 2 variable names which were s and e for start and end.
+
+Refactor: Replace variable with symbolic name 
+
+Location: Line 4 - 5 of src > ReportGenerator.py
+
+ 
+
+Code Smell / Refactor 3: 
+
+Date Found: 12/9/23 
+
+Code Smell: Dead Code
+
+ - Initially an observer pattern was going to be used, but it never was implemented so there was dead code.
+
+Refactor: Remove dead code
+
+Location: Lines 12 in src >  RecordTime.py
+
+ 
+
+Code Smell / Refactor 4: 
+
+Date Found: 12/9/23 
+
+Code Smell: Duplicate code 
+
+ - Previously there was two parent strategy classes, one for TaskRecordValidator and another for TimeValidationStrategy and DateValidationStrategy. One was eliminated.
+
+Refactor: Remove duplicate code 
+
+Location: src > TaskValidationStrategy.py
+
+ 
+
+Code Smell / Refactor 5: 
+
+Date Found: 12/9/23 
+
+Code Smell:  Long Method
+
+ -  The Method record_time in TaskManager.py was very long and violating SRP so a class was extracted out of it
+
+Refactor: Extract Class
+
+Location: Line 18 in src > TaskManager.py
+
+ 
+
+Code Smell 6: 
+
+Date Found: 12/9/23 
+
+Code Smell:  Magic Number
+
+ - There are instances of the Magic Number code smells in the calculate_time_input function in the RecordTime class, such as 3600.
+
+Refactor: Replace magic Number with Symbolic Variable
+
+Location: Line 38 in src > RecordTime.py
+
+ 
+
+Code Smell 7: 
+
+Date Found: 12/9/23 
+
+Code Smell: Lazy Class
+
+ - Although the TaskRecord class is crucial, it does not do alot which makes it a lazy class.
+
+Location: src > TaskRecord.py 
+
+ 
+
+Code Smell 8: 
+
+Date Found: 12/9/23 
+
+Code Smell: Use of If/Else conditional statements.  
+
+ - In the get_valid_input function of RecordTime a large if else conditional statement is used causing a code smell.
+
+Location: Line 26 in scr > RecordTime.py
+
+ 
+
+Code Smell 9: 
+
+Date Found: 12/9/23 
+
+Code Smell: Large Class
+
+ - The class TaskRecordRepository is a very large class that should be split into smaller classes.
+
+Location: src > TaskRecordRepository.py
+
+ 
+
+Code Smell 10: 
+
+Date Found: 12/9/23 
+
+Code Smell: Long Parameter List 
+
+ - TaskRecord class requires long list of params 
+
+Location: Line 19 of src > RecordTime.py 
+
+ 

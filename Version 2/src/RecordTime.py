@@ -5,7 +5,6 @@ from src.TaskRecordValidator import TaskRecordValidator
 from src.DateValidationStrategy import DateValidationStrategy
 
 class RecordTime:
-
     def __init__(self, task_repository):
         self.validator = TaskRecordValidator(DateValidationStrategy())
         self.task_repository = task_repository
@@ -36,8 +35,10 @@ class RecordTime:
         start_time = datetime.datetime.strptime(self.start_time_of_task, '%I:%M %p')
         end_time = datetime.datetime.strptime(self.end_time_of_task, '%I:%M %p')
         duration_seconds = (end_time - start_time).seconds
-        duration_hours = duration_seconds // 3600
-        duration_minutes = (duration_seconds % 3600) // 60
+        secondsInHour = 3600
+        secondsInMin = 60
+        duration_hours = duration_seconds // secondsInHour
+        duration_minutes = (duration_seconds % secondsInHour) // secondsInMin
 
         # Format the duration as HH:MM
         return "{:02}:{:02}".format(duration_hours, duration_minutes)
