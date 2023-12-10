@@ -16,14 +16,14 @@ Although not explicitly a Factory Method Pattern, the DatabaseConnectionFactory 
 
 Design Pattern 3:
 Pattern: Factory Method Pattern
-Date: [Provide the current date]
+Date: 12/8/23
 File: TaskRecordRepositoryFactory.py
-Lines: [Specify the relevant lines]
+Lines: 4 - 6
 The TaskRecordRepositoryFactory class implements the Factory Method Pattern, providing a centralized method for creating instances of the TaskRecordRepository class.
 
 Design Pattern 4:
 Pattern: Strategy Pattern
 Date: 12/7/23
-File: TaskRecordValidator.py
+File: ValidationStrategy.py
 Lines: 4 - 18
-The TaskRecordValidator class follows a strategy-like approach by encapsulating the date and time validation strategies in separate methods (verify_date and verify_time). The strategies can be easily extended or replaced without modifying the client code.
+The ValidationStrategy class follows a strategy-like approach by encapsulating the date and time validation strategies in separate methods (verify_date and verify_time). The strategies can be easily extended or replaced without modifying the client code.

@@ -5,6 +5,7 @@ from src.TaskRecordValidator import TaskRecordValidator
 from src.DateValidationStrategy import DateValidationStrategy
 
 class RecordTime:
+
     def __init__(self, task_repository):
         self.validator = TaskRecordValidator(DateValidationStrategy())
         self.task_repository = task_repository
@@ -16,7 +17,7 @@ class RecordTime:
         task_name = input("Enter task name: ")
         task_tag = input("Enter task tag: ")
 
-        task_record = TaskRecord(date_of_task, self.start_time_of_task, self.end_time_of_task, task_name, task_tag, self.calculateTimeInput())
+        task_record = TaskRecord(date_of_task, self.start_time_of_task, self.end_time_of_task, task_name, task_tag, self.calculate_time_input())
         self.task_repository.insert_task_record(task_record)
         print("Data successfully inserted into the database.")
     
@@ -30,7 +31,7 @@ class RecordTime:
             else:
                 print(f"Invalid input. {prompt}")
 
-    def calculateTimeInput(self):
+    def calculate_time_input(self):
         # Calculate duration
         start_time = datetime.datetime.strptime(self.start_time_of_task, '%I:%M %p')
         end_time = datetime.datetime.strptime(self.end_time_of_task, '%I:%M %p')
@@ -38,7 +39,5 @@ class RecordTime:
         duration_hours = duration_seconds // 3600
         duration_minutes = (duration_seconds % 3600) // 60
 
-        # Create a timedelta object for easier manipulation
-        duration_timedelta = datetime.timedelta(hours=duration_hours, minutes=duration_minutes)
         # Format the duration as HH:MM
-        return "{:02}:{:02}".format(duration_timedelta.seconds // 3600, (duration_timedelta.seconds % 3600) // 60)
+        return "{:02}:{:02}".format(duration_hours, duration_minutes)

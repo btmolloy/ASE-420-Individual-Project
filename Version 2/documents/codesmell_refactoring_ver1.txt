@@ -1,4 +1,3 @@
- 
 Code Smell / Refactor 1: 
 
 Date Found: 12/9/23 

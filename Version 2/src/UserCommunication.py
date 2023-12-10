@@ -24,12 +24,14 @@ class UserCommunication:
         print("5. Exit")
 
     def validateInput(self):
+        # Validate user input and set the choice attribute
         if self.user_choice in ["1", "2", "3", "4", "5"]:
             self.choice = self.user_choice
         else:
             print("Invalid choice. Please enter a number between 1 and 5.")
             self.choice = None
 
+        # Define dictionary mapping user choices to corresponding methods
         self.inputOptions = {
             "1": self.task_manager.record_time,
             "2": self.task_manager.search_tasks,

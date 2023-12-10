@@ -1,5 +1,6 @@
 class TaskRecord:
     def __init__(self, date_of_task, start_time_of_task, end_time_of_task, task_name, task_tag, duration):
+        # Initialize TaskRecord with provided attributes
         self.date_of_task = date_of_task
         self.start_time_of_task = start_time_of_task
         self.end_time_of_task = end_time_of_task
