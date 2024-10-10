@@ -1,5 +1,6 @@
 from src.UserCommunication import UserCommunication
-
+# test 
+ 
 def main():
     startConnection = UserCommunication()
     startConnection.applicationLoop()
